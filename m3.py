@@ -35,3 +35,5 @@ class Motor3(DRV8825_3):
 
 if __name__ == "__main__":
     m3 = Motor3(dir_pin=10, step_pin=9, enable_pin=11, mode_pins=(17, 22, 27))
+    m3.run()
+    
