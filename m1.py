@@ -14,19 +14,19 @@ class Motor1(DRV8825_12):
 
     def motor1_up_to_3_only(self, steps, stepdelay):  # motor1顶起魔方至第三层并且只被旋转槽固定
         self.TurnStep('forward', steps, stepdelay)
-        self.Stop()
+        # self.Stop()
 
     def motor1_up_to_3_both(self, steps, stepdelay):  # motor1顶起魔方至第三层并且同时被固定槽和旋转槽固定
         self.TurnStep('forward', steps, stepdelay)  # steps的值根据实际情况需要再调
-        self.Stop()
+        # self.Stop()
 
     def motor1_down_to_2_from_only(self, steps, stepdelay):  # motor1让魔方从1的状态下降到第二层
         self.TurnStep('backward', steps, stepdelay)  # steps的值根据实际情况需要再调
-        self.Stop()
+        # self.Stop()
 
     def motor1_down_to_2_from_both(self, steps, stepdelay):  # motor1让魔方从1的状态下降到第二层
         self.TurnStep('backward', steps, stepdelay)  # steps的值根据实际情况需要再调
-        self.Stop()
+        # self.Stop()
 
     def get_cmd(self):
         temp_cmd = input()
