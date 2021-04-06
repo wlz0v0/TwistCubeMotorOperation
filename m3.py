@@ -1,5 +1,4 @@
 import time
-
 import pymongo
 
 from DRV8825_3 import DRV8825_3

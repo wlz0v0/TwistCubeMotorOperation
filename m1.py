@@ -1,5 +1,4 @@
-import time, _thread
-
+import time
 import pymongo
 
 from DRV8825_12 import DRV8825_12
