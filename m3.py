@@ -7,7 +7,7 @@ from DRV8825_3 import DRV8825_3
 
 class Motor3(DRV8825_3):
     steps = 25
-    delay = 0.005
+    delay = 0.1
     client = pymongo.MongoClient(
         "mongodb://crepusculum.xyz:27017/",
         username="cube",
@@ -55,8 +55,10 @@ class Motor3(DRV8825_3):
             cmd = self.get_cmd()
             if cmd == "m3_clockwise":
                 self.motor3_clockwise(self.steps, self.delay)
+                self.update()
             elif cmd == "m3_anti":
                 self.motor3_anti_clockwise(self.steps, self.delay)
+                self.update()
             else:
                 time.sleep(1)
 

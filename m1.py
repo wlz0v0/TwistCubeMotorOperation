@@ -1,4 +1,4 @@
-import time
+import time, _thread
 
 import pymongo
 
@@ -6,10 +6,10 @@ from DRV8825_12 import DRV8825_12
 
 
 class Motor1(DRV8825_12):
-    only_steps = 66
-    both_steps = 66
-    only_delay = 0.005
-    both_delay = 0.005
+    only_steps = 6500
+    both_steps = 8700
+    only_delay = 0.001
+    both_delay = 0.001
     client = pymongo.MongoClient(
         "mongodb://crepusculum.xyz:27017/",
         username="cube",

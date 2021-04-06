@@ -6,8 +6,8 @@ from DRV8825_12 import DRV8825_12
 
 
 class Motor2(DRV8825_12):
-    steps = 66
-    delay = 0.005
+    steps = 1024
+    delay = 0.001
     client = pymongo.MongoClient(
         "mongodb://crepusculum.xyz:27017/",
         username="cube",
@@ -53,8 +53,10 @@ class Motor2(DRV8825_12):
             cmd = self.get_cmd()
             if cmd == "m2_clockwise":
                 self.motor2_clockwise(self.steps, self.delay)
+                self.update()
             elif cmd == "m2_anti":
                 self.motor2_clockwise(self.steps, self.delay)
+                self.update()
             else:
                 time.sleep(1)
 
