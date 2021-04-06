@@ -54,7 +54,7 @@ class Motor2(DRV8825_12):
                 self.motor2_clockwise(self.steps, self.delay)
                 self.update()
             elif cmd == "m2_anti":
-                self.motor2_clockwise(self.steps, self.delay)
+                self.motor2_anti_clockwise(self.steps, self.delay)
                 self.update()
             else:
                 time.sleep(1)
