@@ -36,6 +36,14 @@ class Motor1(DRV8825_12):
         self.TurnStep('backward', steps, stepdelay)  # steps的值根据实际情况需要再调
         # self.Stop()
 
+    def motor1_both_to_only(self, steps, stepdelay):
+        self.TurnStep('backward', steps, stepdelay)
+        # self.Stop()
+
+    def motor1_only_to_both(self, steps, stepdelay):
+        self.TurnStep('forward', steps, stepdelay)
+        # self.Stop()
+
     def get_cmd(self):
         mini_cmd = self.mini_cmd_collection.find_one()
         if mini_cmd is None:
@@ -71,6 +79,12 @@ class Motor1(DRV8825_12):
                 self.update()
             elif cmd == "m1_down_both":
                 self.motor1_down_to_2_from_both(self.both_steps, self.both_delay)
+                self.update()
+            elif cmd == "m1_both_to_only":
+                self.motor1_both_to_only(self.both_steps - self.only_steps, self.both_delay)
+                self.update()
+            elif cmd == "m1_only_to_both":
+                self.motor1_only_to_both(self.both_steps - self.only_steps, self.only_delay)
                 self.update()
             else:
                 time.sleep(1)

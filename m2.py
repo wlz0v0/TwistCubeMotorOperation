@@ -19,11 +19,11 @@ class Motor2(DRV8825_12):
         DRV8825_12.__init__(self, dir_pin, step_pin, enable_pin, mode_pins)
 
     def motor2_clockwise(self, steps, stepdelay):  # motor2让L型支架顺时针翻转（让上面向下翻转作为正面 从右边看是正L形）
-        self.TurnStep('forward', steps, stepdelay)  # steps的值根据实际情况需要再调
+        self.TurnStep('backward', steps, stepdelay)  # steps的值根据实际情况需要再调
         # self.Stop()
 
     def motor2_anti_clockwise(self, steps, stepdelay):  # motor2让L型支架顺时针翻转（让上面向下翻转作为正面 从右边看是正L形）
-        self.TurnStep('backward', steps, stepdelay)  # steps的值根据实际情况需要再调
+        self.TurnStep('forward', steps, stepdelay)  # steps的值根据实际情况需要再调
         # self.Stop()
 
     def get_cmd(self):
