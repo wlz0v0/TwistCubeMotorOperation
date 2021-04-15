@@ -20,13 +20,13 @@ class Motor3(DRV8825_3):
         self.SetMicroStep('softward', '1/32step')
 
     def motor3_clockwise(self, steps, stepdelay):  # motor3顺时针转动旋转槽
-        self.motor3_anti_clockwise(steps, stepdelay)
-        self.motor3_anti_clockwise(steps, stepdelay)
-        self.motor3_anti_clockwise(steps, stepdelay)
-
-    def motor3_anti_clockwise(self, steps, stepdelay):  # motor3顺时针转动旋转槽
         self.TurnStep('backward', steps, stepdelay)  # steps的值根据实际情况需要再调
         # self.Stop()
+
+    def motor3_anti_clockwise(self, steps, stepdelay):  # motor3顺时针转动旋转槽
+        self.motor3_clockwise(steps, stepdelay)
+        self.motor3_clockwise(steps, stepdelay)
+        self.motor3_clockwise(steps, stepdelay)
 
     def get_cmd(self):
         mini_cmd = self.mini_cmd_collection.find_one()
